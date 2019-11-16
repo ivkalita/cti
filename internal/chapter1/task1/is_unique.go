@@ -1,7 +1,6 @@
 package task1
 
 import (
-	"bytes"
 	"sort"
 )
 
@@ -21,7 +20,7 @@ func IsUniqueWithSet(a string) bool {
 // IsUniqueWithSort – O(1) memory, O(n log n) time
 // sorts string in any order and then check that there are no consecutive equal runes
 func IsUniqueWithSort(a string) bool {
-	runes := bytes.Runes([]byte(a))
+	runes := []rune(a)
 	if len(runes) == 0 {
 		return true
 	}

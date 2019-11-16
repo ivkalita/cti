@@ -57,7 +57,7 @@ func RunTests(t *testing.T, testable func(a string, b string) bool) {
 	}
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
-			require.Equal(t, testable(test.a, test.b), test.expected)
+			require.Equal(t, test.expected, testable(test.a, test.b))
 		})
 	}
 }
