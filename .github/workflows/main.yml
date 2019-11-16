@@ -1,0 +1,14 @@
+name: Test on push
+
+on: [push]
+
+jobs:
+  checks:
+    name: run
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-go@v1
+        with:
+          go-version: 1.12.5
+      - run: go test ./...
