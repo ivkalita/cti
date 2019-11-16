@@ -1,0 +1,29 @@
+package task2
+
+import "bytes"
+
+// CheckPermutation – O(1) memory, O(n) time
+// uses additional set to store total number of each visited rune
+func CheckPermutation(a string, b string) bool {
+	if len(a) != len(b) {
+		return false
+	}
+
+	aRunes := bytes.Runes([]byte(a))
+	bRunes := bytes.Runes([]byte(b))
+
+	n := len(aRunes)
+	diff := make(map[rune]int, n)
+	for i := 0; i < n; i++ {
+		diff[aRunes[i]] += 1
+		diff[bRunes[i]] -= 1
+	}
+
+	for _, count := range diff {
+		if count > 0 {
+			return false
+		}
+	}
+
+	return true
+}
