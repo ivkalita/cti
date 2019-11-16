@@ -1,4 +1,4 @@
-package task11_test
+package task1_test
 
 import (
 	"github.com/stretchr/testify/require"
