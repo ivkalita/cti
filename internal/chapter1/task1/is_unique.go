@@ -7,7 +7,7 @@ import (
 // IsUniqueWithSet – O(1) memory, O(n) time
 // uses additional constant (if alphabet size is constant) memory to store set with visited runes
 func IsUniqueWithSet(a string) bool {
-	set := make(map[rune]interface{})
+	set := make(map[rune]interface{}, 256)
 	for _, r := range a {
 		if _, ok := set[r]; ok {
 			return false

@@ -11,7 +11,7 @@ func CheckPermutation(a string, b string) bool {
 	bRunes := []rune(b)
 
 	n := len(aRunes)
-	diff := make(map[rune]int, n)
+	diff := make(map[rune]int, 256)
 	for i := 0; i < n; i++ {
 		diff[aRunes[i]] += 1
 		diff[bRunes[i]] -= 1
