@@ -9,3 +9,12 @@ type Stack interface {
 }
 
 var StackIsEmpty = errors.New("stack is empty")
+
+type Queue interface {
+	Add(int)
+	Remove() error
+	Peek() (int, error)
+	IsEmpty() bool
+}
+
+var QueueIsEmpty = errors.New("queue is empty")
