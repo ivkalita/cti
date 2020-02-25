@@ -1,7 +1,7 @@
 package task4_test
 
 import (
-	"github.com/stretchr/testify/require"
+	"github.com/stretchr/testify/assert"
 	"testing"
 )
 
@@ -39,7 +39,7 @@ func RunTests(t *testing.T, testable func(string) bool) {
 	}
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
-			require.Equal(t, test.expected, testable(test.in))
+			assert.Equal(t, test.expected, testable(test.in))
 		})
 	}
 }

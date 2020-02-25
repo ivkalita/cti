@@ -2,7 +2,7 @@ package task2_test
 
 import (
 	"github.com/ivkalita/cti/internal/chapter2/structs"
-	"github.com/stretchr/testify/require"
+	"github.com/stretchr/testify/assert"
 	"testing"
 )
 
@@ -48,10 +48,10 @@ func RunTests(t *testing.T, testable func(l structs.LinkedList, k int) (int, err
 		t.Run(test.name, func(t *testing.T) {
 			elem, err := testable(structs.NewLinkedList(test.in), test.k)
 			if test.expectedErr {
-				require.Error(t, err)
+				assert.Error(t, err)
 			} else {
-				require.NoError(t, err)
-				require.Equal(t, test.expected, elem)
+				assert.NoError(t, err)
+				assert.Equal(t, test.expected, elem)
 			}
 		})
 	}

@@ -1,7 +1,7 @@
 package common
 
 import (
-	"github.com/stretchr/testify/require"
+	"github.com/stretchr/testify/assert"
 	"testing"
 )
 
@@ -13,14 +13,14 @@ func RunStackTests(t *testing.T, newStack func() Stack) {
 		{
 			name: "empty is empty",
 			executor: func(t *testing.T, stack Stack) {
-				require.True(t, stack.IsEmpty())
+				assert.True(t, stack.IsEmpty())
 			},
 		},
 		{
 			name: "pushed not empty",
 			executor: func(t *testing.T, stack Stack) {
 				stack.Push(1)
-				require.False(t, stack.IsEmpty())
+				assert.False(t, stack.IsEmpty())
 			},
 		},
 		{
@@ -28,9 +28,9 @@ func RunStackTests(t *testing.T, newStack func() Stack) {
 			executor: func(t *testing.T, stack Stack) {
 				stack.Push(1)
 				elem, err := stack.Pop()
-				require.NoError(t, err)
-				require.Equal(t, 1, elem)
-				require.True(t, stack.IsEmpty())
+				assert.NoError(t, err)
+				assert.Equal(t, 1, elem)
+				assert.True(t, stack.IsEmpty())
 			},
 		},
 		{
@@ -40,15 +40,15 @@ func RunStackTests(t *testing.T, newStack func() Stack) {
 				stack.Push(2)
 
 				elem, err := stack.Pop()
-				require.NoError(t, err)
-				require.Equal(t, 2, elem)
+				assert.NoError(t, err)
+				assert.Equal(t, 2, elem)
 			},
 		},
 		{
 			name: "empty pop error",
 			executor: func(t *testing.T, stack Stack) {
 				_, err := stack.Pop()
-				require.Equal(t, StackIsEmpty, err)
+				assert.Equal(t, StackIsEmpty, err)
 			},
 		},
 	}
@@ -70,14 +70,14 @@ func RunQueueTests(t *testing.T, newQueue func() Queue) {
 		{
 			name: "empty is empty",
 			executor: func(t *testing.T, queue Queue) {
-				require.True(t, queue.IsEmpty())
+				assert.True(t, queue.IsEmpty())
 			},
 		},
 		{
 			name: "peek empty -> error",
 			executor: func(t *testing.T, queue Queue) {
 				_, err := queue.Peek()
-				require.Equal(t, QueueIsEmpty, err)
+				assert.Equal(t, QueueIsEmpty, err)
 			},
 		},
 		{
@@ -88,8 +88,8 @@ func RunQueueTests(t *testing.T, newQueue func() Queue) {
 
 				el, err := queue.Peek()
 
-				require.NoError(t, err)
-				require.Equal(t, 1, el)
+				assert.NoError(t, err)
+				assert.Equal(t, 1, el)
 			},
 		},
 		{
@@ -99,11 +99,11 @@ func RunQueueTests(t *testing.T, newQueue func() Queue) {
 				queue.Add(2)
 
 				err := queue.Remove()
-				require.NoError(t, err)
+				assert.NoError(t, err)
 
 				el, err := queue.Peek()
-				require.NoError(t, err)
-				require.Equal(t, 2, el)
+				assert.NoError(t, err)
+				assert.Equal(t, 2, el)
 			},
 		},
 		{
@@ -111,7 +111,7 @@ func RunQueueTests(t *testing.T, newQueue func() Queue) {
 			executor: func(t *testing.T, queue Queue) {
 				err := queue.Remove()
 
-				require.Equal(t, QueueIsEmpty, err)
+				assert.Equal(t, QueueIsEmpty, err)
 			},
 		},
 	}

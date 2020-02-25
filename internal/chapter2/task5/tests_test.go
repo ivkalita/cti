@@ -3,7 +3,7 @@ package task5_test
 import (
 	"fmt"
 	"github.com/ivkalita/cti/internal/chapter2/structs"
-	"github.com/stretchr/testify/require"
+	"github.com/stretchr/testify/assert"
 	"strconv"
 	"testing"
 )
@@ -44,8 +44,8 @@ func RunTests(t *testing.T, reversed bool, testable func(a structs.LinkedList, b
 
 			actual, err := testable(la, lb)
 
-			require.NoError(t, err)
-			require.Equal(t, lc.ToSlice(), actual.ToSlice())
+			assert.NoError(t, err)
+			assert.Equal(t, lc.ToSlice(), actual.ToSlice())
 		})
 	}
 }

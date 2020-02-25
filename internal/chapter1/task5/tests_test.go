@@ -1,7 +1,7 @@
 package task5_test
 
 import (
-	"github.com/stretchr/testify/require"
+	"github.com/stretchr/testify/assert"
 	"testing"
 )
 
@@ -81,8 +81,8 @@ func RunTests(t *testing.T, testable func(string, string) bool) {
 	}
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
-			require.Equal(t, test.expected, testable(test.a, test.b))
-			require.Equal(t, test.expected, testable(test.b, test.a))
+			assert.Equal(t, test.expected, testable(test.a, test.b))
+			assert.Equal(t, test.expected, testable(test.b, test.a))
 		})
 	}
 }

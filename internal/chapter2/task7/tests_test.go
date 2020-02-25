@@ -2,7 +2,7 @@ package task7_test
 
 import (
 	"github.com/ivkalita/cti/internal/chapter2/structs"
-	"github.com/stretchr/testify/require"
+	"github.com/stretchr/testify/assert"
 	"testing"
 )
 
@@ -64,7 +64,7 @@ func RunTests(t *testing.T, testable func(a structs.LinkedList, b structs.Linked
 		t.Run(test.name, func(t *testing.T) {
 			a, b, expected := test.generate()
 
-			require.Equal(t, expected, testable(a, b))
+			assert.Equal(t, expected, testable(a, b))
 		})
 	}
 }

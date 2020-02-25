@@ -2,7 +2,7 @@ package task4_test
 
 import (
 	"github.com/ivkalita/cti/internal/chapter2/structs"
-	"github.com/stretchr/testify/require"
+	"github.com/stretchr/testify/assert"
 	"sort"
 	"testing"
 )
@@ -53,14 +53,14 @@ func RunTests(t *testing.T, testable func(l *structs.LinkedList, x int)) {
 
 				if !lesserPart {
 					if v < test.x {
-						require.Failf(t, "order is wrong", "value %v less than %v", v, test.x)
+						assert.Failf(t, "order is wrong", "value %v less than %v", v, test.x)
 					}
 				}
 			}
 
 			sort.Ints(actual)
 			sort.Ints(test.in)
-			require.Equal(t, test.in, actual)
+			assert.Equal(t, test.in, actual)
 		})
 	}
 }

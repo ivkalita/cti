@@ -1,7 +1,7 @@
 package task3_test
 
 import (
-	"github.com/stretchr/testify/require"
+	"github.com/stretchr/testify/assert"
 	"testing"
 )
 
@@ -53,10 +53,10 @@ func RunTests(t *testing.T, testable func(*[]rune, int) error) {
 		t.Run(test.name, func(t *testing.T) {
 			err := testable(&test.in, test.realLen)
 			if test.expectedErr {
-				require.Error(t, err)
+				assert.Error(t, err)
 			} else {
-				require.NoError(t, err)
-				require.Equal(t, []rune(test.expected), test.in)
+				assert.NoError(t, err)
+				assert.Equal(t, []rune(test.expected), test.in)
 			}
 		})
 	}

@@ -3,7 +3,7 @@ package task2_test
 import (
 	"github.com/ivkalita/cti/internal/chapter3/common"
 	"github.com/ivkalita/cti/internal/chapter3/task2"
-	"github.com/stretchr/testify/require"
+	"github.com/stretchr/testify/assert"
 	"testing"
 )
 
@@ -24,7 +24,7 @@ func TestMinStack_Min(t *testing.T) {
 			name: "no elements -> error",
 			executor: func(t *testing.T, stack task2.MinStack) {
 				_, err := stack.Min()
-				require.Error(t, common.StackIsEmpty, err)
+				assert.Error(t, common.StackIsEmpty, err)
 			},
 		},
 		{
@@ -32,8 +32,8 @@ func TestMinStack_Min(t *testing.T) {
 			executor: func(t *testing.T, stack task2.MinStack) {
 				stack.Push(1)
 				elem, err := stack.Min()
-				require.NoError(t, err)
-				require.Equal(t, 1, elem)
+				assert.NoError(t, err)
+				assert.Equal(t, 1, elem)
 			},
 		},
 		{
@@ -42,8 +42,8 @@ func TestMinStack_Min(t *testing.T) {
 				stack.Push(1)
 				stack.Push(0)
 				elem, err := stack.Min()
-				require.NoError(t, err)
-				require.Equal(t, 0, elem)
+				assert.NoError(t, err)
+				assert.Equal(t, 0, elem)
 			},
 		},
 		{
@@ -52,8 +52,8 @@ func TestMinStack_Min(t *testing.T) {
 				stack.Push(1)
 				stack.Push(2)
 				elem, err := stack.Min()
-				require.NoError(t, err)
-				require.Equal(t, 1, elem)
+				assert.NoError(t, err)
+				assert.Equal(t, 1, elem)
 			},
 		},
 	}
